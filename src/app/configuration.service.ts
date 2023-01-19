@@ -6,7 +6,7 @@ import { Configuration } from './configuration';
   providedIn: 'root'
 })
 export class ConfigurationService {
-  protected readonly configUrl: string = '/assets/app.json';
+  protected readonly configUrl: string = './assets/app.json';
   protected config: Configuration;
 
   constructor(private http: HttpClient) { }

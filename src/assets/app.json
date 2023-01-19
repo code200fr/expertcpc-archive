@@ -5,5 +5,5 @@
     "dataAge": "19/01/2023",
     "githubName": "code200fr",
     "githubUrl": "https://github.com/code200fr/expertcpc-archive",
-    "dataUrl": "assets/messages.json"
+    "dataUrl": "./assets/messages.json"
 }
