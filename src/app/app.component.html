@@ -1,0 +1,20 @@
+<mat-toolbar class="main-menu" color="primary">
+  <img src="https://forum.canardpc.com/images/statusicon/CanardPCStyle/forum_new-48.png">
+  <span>Expert CPC - Archives</span>
+  <span class="spacer"></span>
+  <button mat-icon-button aria-label="Accueil" [routerLink]="['/latest']">
+    <mat-icon>home</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="search-toolbar">
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Rechercher par mot-clé, #mode, auteur…</mat-label>
+    <input matInput (keyup)="onSearch($event)" [value]="searchQuery">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>

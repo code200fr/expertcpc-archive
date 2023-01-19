@@ -1,0 +1,10 @@
+<mat-paginator #paginator *ngIf="response"
+    (page)="onPageChange($event)"
+    [length]="response.total"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="true"
+    [pageSizeOptions]="pageSizes"
+    [hidePageSize]="false"
+    [pageIndex]="response.page - 1"
+    aria-label="Choisir la page">
+</mat-paginator>

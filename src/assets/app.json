@@ -1,0 +1,5 @@
+{
+    "version": "1.0",
+    "pageSize": 15,
+    "pageSizes": [15, 30, 50, 100]
+}

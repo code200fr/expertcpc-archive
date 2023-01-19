@@ -1,0 +1,7 @@
+<div class="messages">
+    <mat-card *ngIf="response?.messages?.length === 0" class="empty-list">
+        <mat-card-content>Aucun résultat</mat-card-content>
+    </mat-card>
+    <app-message [message]="message" *ngFor="let message of response?.messages"></app-message>
+    <app-pagination [params]="{ page: page.toString(10) }" [response]="response" path="/latest"></app-pagination>
+</div>
