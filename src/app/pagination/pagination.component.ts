@@ -23,10 +23,15 @@ export class PaginationComponent {
 
   onPageChange(e: PageEvent) {
     this.configuration.set('pageSize', e.pageSize);
+    
     this.router.navigate([
       this.path,
-      {...this.params, ...{ page: e.pageIndex + 1 }}
+      {...this.params, ...{ page: e.pageIndex + 1, size: e.pageSize }}
     ]);
+  }
+
+  getPageSize(): number {
+    return parseInt(this.params['size'], 10);
   }
 
   page(): number {

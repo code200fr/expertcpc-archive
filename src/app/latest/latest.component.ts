@@ -11,6 +11,7 @@ import { MessagesProviderService } from '../messages/messages-provider.service';
 })
 export class LatestComponent extends MessageListComponent implements OnInit {
   page: number;
+  size: number;
 
   constructor(
     private messagesProvider: MessagesProviderService,
@@ -26,17 +27,15 @@ export class LatestComponent extends MessageListComponent implements OnInit {
 
   getRouterParams() {
     return {
-      page: this.page.toString(10)
+      page: this.page.toString(10),
+      size: this.size.toString(10),
     }
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => { 
-      this.page = parseInt(params['page'], 10);
-
-      if (!this.page || this.page < 1) {
-        this.page = 1;
-      }
+      this.page = this.getPage(params);
+      this.size = this.getPageSize(params, this.configuration);
 
       this.load();
     });
@@ -44,7 +43,7 @@ export class LatestComponent extends MessageListComponent implements OnInit {
 
   protected load() {
     this.messagesProvider
-      .getRecent(this.page, this.configuration.get('pageSize'))
+      .getRecent(this.page, this.size)
       .then(data => this.renderResponse(data, this));
   }
 }
