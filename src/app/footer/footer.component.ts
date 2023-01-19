@@ -5,8 +5,7 @@ import { ConfigurationService } from '../configuration.service';
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent {
   age: string;
@@ -25,8 +24,7 @@ export class FooterComponent {
     };
   }
 
-  openAbout() {
+  openAbout(): void {
     this.dialog.open(AboutComponent);
-    console.log('open');
   }
 }

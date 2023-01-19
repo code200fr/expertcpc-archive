@@ -7,29 +7,24 @@ import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit, AfterContentInit {
-  title = 'Expert CPC - Archives';
+export class AppComponent implements AfterContentInit {
+  title = 'Expert CPC · Archives';
+
   @Input() searchQuery: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute, private search: SearchService) {
+  constructor(
+    private router: Router,
+    private search: SearchService
+    ) { }
 
-  }
-
-  onSearch(event: KeyboardEvent) {
+  onSearchKeyup(event: KeyboardEvent) {
     const input: HTMLInputElement = event.target as HTMLInputElement;
     const q: string = input.value;
 
     if (event.key === 'Enter') {
       this.router.navigate(['search', { page: 1, q: q }]); 
-    }
-  }
-
-  ngOnInit() {
-    if (document.location.pathname === '/' || document.location.pathname === '') {
-      this.router.navigate(['latest', { page: 1 }]); 
     }
   }
 

@@ -15,6 +15,5 @@ export class SearchService {
     this.changeEmitter.subscribe(callback);
   }
 
-
   constructor() { }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Configuration } from './configuration';
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +29,4 @@ export class ConfigurationService {
   set<P extends keyof Configuration>(property: P, value:Configuration[P]): void  {
     this.config[property] = value;
   }
-}
-
-export interface Configuration {
-  version: string;
-  pageSize: number;
-  pageSizes: number[];
-  dataAge: string;
-  githubName: string;
-  githubUrl: string;
 }

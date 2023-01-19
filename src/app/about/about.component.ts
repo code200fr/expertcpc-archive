@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Configuration, ConfigurationService } from '../configuration.service';
+import { ConfigurationService } from '../configuration.service';
 
 @Component({
   selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  templateUrl: './about.component.html'
 })
 export class AboutComponent {
   githubName: string;

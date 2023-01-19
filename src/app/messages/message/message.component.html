@@ -3,15 +3,27 @@
         <mat-card-header>
             <mat-card-title>{{ message.question }}</mat-card-title>
         </mat-card-header>
+
         <img mat-card-image src="{{ message.imageUrl }}" *ngIf="message.imageUrl">
+        
         <mat-card-content *ngIf="!message.imageUrl">
             <p class="answer">{{ message.answer }}</p>
             <mat-divider></mat-divider>
         </mat-card-content>
+
         <mat-card-actions>
-            <a [routerLink]="['/search', {page: '1', q: message.username}]" mat-button><mat-icon>person</mat-icon> {{ message.username }}</a>
-            <a *ngIf="message.mode" [routerLink]="['/search', {page: '1', q: '#' + message.mode}]" mat-button><mat-icon>tag</mat-icon>{{ message.mode }}</a>
-            <a *ngIf="message.url" href="{{ message.url.href }}" target="_blank" mat-button><mat-icon>link</mat-icon> Origine</a>
+            <a [routerLink]="['/search', {page: '1', q: message.username}]" mat-button>
+                <mat-icon>person</mat-icon>
+                {{ message.username }}
+            </a>
+            <a *ngIf="message.mode" [routerLink]="['/search', {page: '1', q: '#' + message.mode}]" mat-button>
+                <mat-icon>tag</mat-icon>
+                {{ message.mode }}
+            </a>
+            <a *ngIf="message.url" href="{{ message.url.href }}" target="_blank" mat-button>
+                <mat-icon>link</mat-icon>
+                Origine
+            </a>
         </mat-card-actions>
     </mat-card>
 </div>

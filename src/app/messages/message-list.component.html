@@ -3,5 +3,5 @@
         <mat-card-content>Aucun résultat</mat-card-content>
     </mat-card>
     <app-message [message]="message" *ngFor="let message of response?.messages"></app-message>
-    <app-pagination [params]="{ page: page.toString(10), q: q }" [response]="response" path="/search"></app-pagination>
+    <app-pagination [params]="getRouterParams()" [response]="response" [path]="getRouterPath()"></app-pagination>
 </div>

@@ -1,6 +1,6 @@
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
-const frencRangeLabel = (page: number, pageSize: number, length: number) => {
+const frenchRangeLabel = (page: number, pageSize: number, length: number) => {
   if (length == 0 || pageSize == 0) {
     return `0 de ${length}`;
   }
@@ -25,7 +25,7 @@ export function getFrenchPaginatorIntl(): MatPaginatorIntl {
   paginatorIntl.previousPageLabel = 'Page précédente';
   paginatorIntl.lastPageLabel = 'Dernière page';
   paginatorIntl.firstPageLabel = 'Première page';
-  paginatorIntl.getRangeLabel = frencRangeLabel;
+  paginatorIntl.getRangeLabel = frenchRangeLabel;
 
   return paginatorIntl;
 }

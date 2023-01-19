@@ -1,24 +1,33 @@
 import { AfterViewChecked, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ConfigurationService } from '../configuration.service';
+import { MessageListComponent } from '../messages/message-list.component';
 import { Message, MessageResponse } from '../messages/messages';
 import { MessagesProviderService } from '../messages/messages-provider.service';
 
 @Component({
   selector: 'app-latest',
-  templateUrl: './latest.component.html',
-  styleUrls: ['./latest.component.scss']
+  templateUrl: './../messages/message-list.component.html'
 })
-export class LatestComponent implements OnInit {
+export class LatestComponent extends MessageListComponent implements OnInit {
   page: number;
-  response: MessageResponse;
 
   constructor(
     private messagesProvider: MessagesProviderService,
     private route: ActivatedRoute,
     private configuration: ConfigurationService
     ) {
+      super();
+  }
 
+  getRouterPath(): string {
+    return '/latest'
+  }
+
+  getRouterParams() {
+    return {
+      page: this.page.toString(10)
+    }
   }
 
   ngOnInit(): void {
@@ -34,10 +43,8 @@ export class LatestComponent implements OnInit {
   }
 
   protected load() {
-    this.messagesProvider.getRecent(this.page, this.configuration.get('pageSize'))
-      .then((response: MessageResponse) => {
-        this.response = response;
-        window.scroll({ top: 0, left: 0, behavior: 'auto' });
-      })
+    this.messagesProvider
+      .getRecent(this.page, this.configuration.get('pageSize'))
+      .then(data => this.renderResponse(data, this));
   }
 }

@@ -6,8 +6,7 @@ import { MessageResponse } from '../messages/messages';
 
 @Component({
   selector: 'app-pagination',
-  templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+  templateUrl: './pagination.component.html'
 })
 export class PaginationComponent {
   @Input() path: string;
@@ -24,9 +23,10 @@ export class PaginationComponent {
 
   onPageChange(e: PageEvent) {
     this.configuration.set('pageSize', e.pageSize);
-    const params: any = {...this.params, ...{ page: e.pageIndex + 1 }}
-    
-    this.router.navigate([this.path, params])
+    this.router.navigate([
+      this.path,
+      {...this.params, ...{ page: e.pageIndex + 1 }}
+    ]);
   }
 
   page(): number {

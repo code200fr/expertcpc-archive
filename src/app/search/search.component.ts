@@ -1,22 +1,35 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { MessageListComponent } from '../messages/message-list.component';
 import { Message, MessageResponse } from '../messages/messages';
 import { MessagesProviderService } from '../messages/messages-provider.service';
 import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  templateUrl: './../messages/message-list.component.html'
 })
-export class SearchComponent implements OnInit, OnDestroy {
+export class SearchComponent extends MessageListComponent implements OnInit, OnDestroy {
   @Input() page: number = 1;
   @Input() q: string = '';
 
-  response: MessageResponse;
+  constructor(
+    private messagesProvider: MessagesProviderService,
+    private route: ActivatedRoute,
+    private searchEmitter: SearchService
+    ) {
+      super();
+    }
 
-  constructor(private messagesProvider: MessagesProviderService, private route: ActivatedRoute, private searchEmitter: SearchService) {
+  getRouterParams() {
+    return {
+      page: this.page.toString(10),
+      q: this.q
+    };
+  }
 
+  getRouterPath(): string {
+    return '/search';
   }
 
   ngOnInit(): void {
@@ -40,10 +53,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   protected load() {
     this.searchEmitter.setQuery(this.q);
 
-    this.messagesProvider.search(this.q, this.page)
-      .then((response: MessageResponse) => {
-        this.response = response;
-        window.scroll({ top: 0, left: 0, behavior: 'auto' });
-      })
+    this.messagesProvider
+      .search(this.q, this.page)
+      .then(data => this.renderResponse(data, this));
   }
 }

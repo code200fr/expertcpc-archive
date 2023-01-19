@@ -12,7 +12,7 @@ export interface Message {
     username: string;
     answered: boolean;
     answer: string;
-    mode?: AIMode;
+    mode?: string;
     skip?: boolean;
     url?: URL; // generated at runtime
     imageUrl?: string; // generated at runtime
@@ -21,20 +21,4 @@ export interface Message {
 
 export interface Messages {
     [id: string]: Message;
-}
-
-export enum AIMode {
-    Normal = 'normal',
-    Poete = 'poete',
-    Psy = 'psy',
-    Cynique = 'cynique',
-    Science = 'science',
-    Parano = 'parano',
-    Jeopardy = 'jeopardy',
-    Patron = 'patron',
-    Recette = 'recette',
-    Note = 'note',
-    Image = 'image',
-    Sage = 'sage',
-    Film = 'film'
 }

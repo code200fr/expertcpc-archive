@@ -1,5 +1,5 @@
 <mat-toolbar class="main-menu" color="primary">
-  <img src="https://forum.canardpc.com/images/statusicon/CanardPCStyle/forum_new-48.png">
+  <img src="./../assets/expertcpc-archives.png" alt="ExpertCPC" class="logo-img">
   <span>ExpertCPC · Archives</span>
   <span class="spacer"></span>
   <button mat-icon-button aria-label="Accueil" [routerLink]="['/latest']">
@@ -10,7 +10,7 @@
 <div class="search-toolbar">
   <mat-form-field appearance="fill" color="accent">
     <mat-label>Rechercher par mot-clé, #mode, auteur…</mat-label>
-    <input matInput (keyup)="onSearch($event)" [value]="searchQuery">
+    <input matInput (keyup)="onSearchKeyup($event)" [value]="searchQuery">
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </div>

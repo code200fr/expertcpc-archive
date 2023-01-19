@@ -33,6 +33,11 @@ a {
     .spacer {
         flex: 1 1 auto;
     }
+
+    .logo-img {
+        max-width: 48px;
+        margin-right: $spacer;
+    }
 }
 
 .main-footer {

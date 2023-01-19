@@ -1,6 +1,5 @@
-import { query } from '@angular/animations';
 import { Injectable } from '@angular/core';
-import { AIMode, Message, MessageResponse, Messages } from './messages';
+import { Message, MessageResponse, Messages } from './messages';
 import { MessagesLoaderService } from './messages-loader.service';
 
 @Injectable({
@@ -62,7 +61,7 @@ export class MessagesProviderService {
   }
 
   protected addImageUrl(message: Message): Message {
-    if (message.mode !== AIMode.Image) {
+    if (message.mode !== 'image') {
       return message;
     }
 
