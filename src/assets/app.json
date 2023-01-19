@@ -1,5 +1,8 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "pageSize": 15,
-    "pageSizes": [15, 30, 50, 100]
+    "pageSizes": [15, 30, 50, 100],
+    "dataAge": "17/01/2023",
+    "githubName": "code200fr",
+    "githubUrl": "https://github.com/code200fr/expertcpc-archive"
 }

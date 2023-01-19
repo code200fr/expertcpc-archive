@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MessageComponent } from './messages/message/message.component';
 import { LatestComponent } from './latest/latest.component';
@@ -23,6 +24,8 @@ import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ConfigurationService } from './configuration.service';
 import { getFrenchPaginatorIntl } from './pagination/french-paginator-intl';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { getFrenchPaginatorIntl } from './pagination/french-paginator-intl';
     MessageComponent,
     LatestComponent,
     SearchComponent,
-    PaginationComponent
+    PaginationComponent,
+    FooterComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { getFrenchPaginatorIntl } from './pagination/french-paginator-intl';
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     { // Load app configuration at runtime

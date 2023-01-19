@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>À propos</h2>
+
+<mat-dialog-content class="mat-typography">
+  <h2>Qu'est ce qu'ExpertCPC ?</h2>
+  <p>
+    Il s'agit d'une Intelligence Artificielle basée sur GPT-3 qui peut répondre
+    aux membres d'un forum. Il y a eu quasiment 3000 réponses en un an après son
+    lancement en février 2022, grâce à toutes les interactions faites avec la
+    communauté.
+  </p>
+
+  <h2>Qu'est ce que ce site ?</h2>
+  <p>
+    Il s'agit d'un projet fait par le créateur d'ExpertCPC, afin d'apprendre le
+    framework Angular. Le projet est 100% statique, et implémente :
+  </p>
+  <ul>
+    <li>Le routing angular</li>
+    <li>Angular Material</li>
+    <li>De l'internationalisation</li>
+    <li>Un chargement de la configuration au runtime</li>
+    <li>Un moteur de recherche sans backend</li>
+  </ul>
+  <p>
+    Le code de ce site est disponible ici : <a href="{{ githubUrl }}">{{ githubUrl }}</a>
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Pour toute demande, merci de me contacter sur Github : <a href="https://github.com/{{ githubName }}" target="_blank">{{ githubName }}</a>
+  </p>
+
+  <h2>Cookies</h2>
+  <p>
+    Ce site n'utile pas de cookies !
+  </p>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fermer</button>
+</mat-dialog-actions>

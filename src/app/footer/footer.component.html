@@ -1,0 +1,23 @@
+<footer class="main-footer">
+    <mat-card>
+        <mat-card-content>
+            <ul>
+                <li>
+                    <strong>Âge des données</strong>
+                    {{ age }}
+                </li>
+                <li>
+                    <strong>Version de l'app</strong>
+                    {{ version }}
+                </li>
+                <li>
+                    <strong>Github</strong>
+                    <a href="{{ github.url }}">{{ github.name }}</a>
+                </li>
+                <li>
+                    <a mat-flat-button (click)="openAbout()">À propos</a>
+                </li>
+            </ul>
+        </mat-card-content>
+    </mat-card>
+</footer>

@@ -12,6 +12,10 @@ mat-form-field {
     width: 100%;
 }
 
+a {
+    color: #fff;
+}
+
 .mat-mdc-card-header {
     padding: 16px !important;
 }
@@ -28,6 +32,32 @@ mat-form-field {
 
     .spacer {
         flex: 1 1 auto;
+    }
+}
+
+.main-footer {
+    margin-top: $spacer;
+    text-align: right;
+    font-size: 0.7rem;
+
+    a {
+        color: white;
+    }
+
+    ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-left: $spacer;
+
+            strong {
+                display: block;
+            }
+        }
     }
 }
 
